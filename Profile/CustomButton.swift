@@ -40,3 +40,40 @@ class CustomButton: UIButton {
         }
 
     }
+
+class PickUpButton: UIButton {
+    
+    var buttonTitle: String
+    var buttColor: UIColor
+    var titleColor: UIColor
+    typealias Action = () -> Void
+    var buttonAction: Action
+    
+    init(buttonTitle: String, buttColor: UIColor, titleColor: UIColor = .white, action: @escaping Action) {
+        buttonAction = action
+        self.buttonTitle = buttonTitle
+        self.buttColor = buttColor
+        self.titleColor = titleColor
+        super.init(frame: .zero)
+        clipsToBounds = true
+        backgroundColor = buttColor
+        setTitleColor(titleColor, for: .normal)
+        layer.cornerRadius = 10
+        setTitle(buttonTitle, for: .normal)
+        titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        layer.masksToBounds = false
+        translatesAutoresizingMaskIntoConstraints = false
+        addTarget(self, action: #selector(generatePasswordButtonTapped), for: .touchUpInside)
+        
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc private func generatePasswordButtonTapped() {
+            buttonAction()
+        }
+    
+}

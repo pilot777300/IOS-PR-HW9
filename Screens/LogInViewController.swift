@@ -10,18 +10,25 @@ import UIKit
 class LogInViewController: UIViewController {
     
     var coordinator: StartFlow?
-    
+  
      private lazy var loginButton: CustomButton = {
          let button = CustomButton(buttonTitle: "Войти" , buttonColor: .blue) { [self] in
             loginButtonPressed()
         }
        return button
     }()
-    
 
     private lazy var logo = UIImageView()
-  lazy var email = UITextField()
-  lazy var password = UITextField()
+    lazy var email = UITextField()
+    lazy var password = UITextField()
+
+    private lazy var pickUpPasswordBtn: PickUpButton = {
+        let btn = PickUpButton(buttonTitle: "Подобрать пароль", buttColor: .blue) {[self] in
+            pickUpButtonPressed()
+        }
+    return btn
+    }()
+    
  
     
     var loginDelegate: LoginViewControllerDelegate = LoginInspector()
@@ -73,6 +80,7 @@ class LogInViewController: UIViewController {
         password.isSecureTextEntry = true
         self.view.addSubview(password)
         self.view.addSubview(loginButton)
+        self.view.addSubview(pickUpPasswordBtn)
         constraints()
 
     }
@@ -108,6 +116,27 @@ class LogInViewController: UIViewController {
 
 
     }
+    
+    @objc func pickUpButtonPressed() {
+        
+        self.password.backgroundColor = .yellow
+        self.password.isSecureTextEntry = false
+        self.password.text = "Generating password"
+        
+        let task = DispatchQueue.global(qos: .background)
+        task.async {
+         
+            let picUpPass = PickUpPassword()
+            let passGenerator = picUpPass.bruteForce()
+        
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.password.text = passGenerator
+            self.password.backgroundColor = .systemGray6
+            }
+        }
+    }
+    
+    
     private func constraints() {
         let safeArea = view.safeAreaLayoutGuide
      NSLayoutConstraint.activate([
@@ -132,6 +161,11 @@ class LogInViewController: UIViewController {
         loginButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
         loginButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16),
         loginButton.heightAnchor.constraint(equalToConstant: 50),
+        
+        pickUpPasswordBtn.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10),
+        pickUpPasswordBtn.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
+        pickUpPasswordBtn.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16),
+        pickUpPasswordBtn.heightAnchor.constraint(equalToConstant: 50)
 
      ])
     

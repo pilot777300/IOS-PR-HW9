@@ -27,6 +27,7 @@
 		0465F8D728E5D0A4005A4890 /* StorageService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0465F8D028E5D0A4005A4890 /* StorageService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0465F8DF28E5D2EE005A4890 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F8DE28E5D2EE005A4890 /* Post.swift */; };
 		04831FD928F85E930051B471 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04831FD828F85E930051B471 /* Checker.swift */; };
+		04AFC3D4294DD6F50083F42F /* PasswordGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AFC3D3294DD6F30083F42F /* PasswordGenerator.swift */; };
 		04B1A11B28E47D90004E1488 /* fox.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 04B1A11A28E47D90004E1488 /* fox.jpeg */; };
 		04B1A11D28E47DA9004E1488 /* cat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04B1A11C28E47DA9004E1488 /* cat.jpg */; };
 		04B1A11F28E4ADEC004E1488 /* volf.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 04B1A11E28E4ADEB004E1488 /* volf.jpeg */; };
@@ -97,6 +98,7 @@
 		0465F8D228E5D0A4005A4890 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		0465F8DE28E5D2EE005A4890 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		04831FD828F85E930051B471 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
+		04AFC3D3294DD6F30083F42F /* PasswordGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordGenerator.swift; sourceTree = "<group>"; };
 		04B1A11A28E47D90004E1488 /* fox.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fox.jpeg; sourceTree = "<group>"; };
 		04B1A11C28E47DA9004E1488 /* cat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat.jpg; sourceTree = "<group>"; };
 		04B1A11E28E4ADEB004E1488 /* volf.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = volf.jpeg; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				0420ABFF291A7EBA00D5D36A /* FeedModel.swift */,
+				04AFC3D3294DD6F30083F42F /* PasswordGenerator.swift */,
 				04D908E7293E114D00C0253D /* PostModel.swift */,
 				04D908E9293E148600C0253D /* PhotoGalleryModel.swift */,
 			);
@@ -443,6 +446,7 @@
 				043090CB29193D32001AF0BD /* FeedViewController.swift in Sources */,
 				042197B2293CA7AD002371CF /* ProfileCoordinator.swift in Sources */,
 				042197B9293CA8AE002371CF /* TabBarController.swift in Sources */,
+				04AFC3D4294DD6F50083F42F /* PasswordGenerator.swift in Sources */,
 				042197B7293CA892002371CF /* TabBarCoordinator.swift in Sources */,
 				04D908F0293E357300C0253D /* PostView.swift in Sources */,
 				04C05DCB2877241F006747AC /* SceneDelegate.swift in Sources */,
